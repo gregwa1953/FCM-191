@@ -4,7 +4,7 @@ This repository contains the files from my **Full Circle Magazine issue #191 (Ma
 
 **NOTE: This is currently an EARLY RELEASE REPOSITORY.**
 
-This repository contains Python code for a standalone Python program called *mido_test.py*, a *requirements.txt* file to make the installation of the extra libries easier, a Python project written in **PAGE** called *MidiInfo* which includes 4 files (MidiInfo.tcl, MidiInfo.py, MidiInfo_support.py and the shared.py file which are required to run the program), a grahics folder for the PAGE project, a themes folder which is required for the PAGE project and at least 4 freely available midi files.
+This repository contains Python code for a standalone Python program called *mido_test.py*, a *requirements.txt* file to make the installation of the extra libraries easier, a Python project written in **PAGE** called *MidiInfo* which includes 4 files (MidiInfo.tcl, MidiInfo.py, MidiInfo_support.py and the shared.py file which are required to run the program), a graphics folder for the PAGE project, a themes folder which is required for the PAGE project and at least 4 freely available midi files.
 
 ## Assumptions
 
