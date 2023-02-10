@@ -2,7 +2,9 @@
 
 This repository contains the files from my **Full Circle Magazine issue #191 (March 2023)**.
 
-This repository contains Python code for a standalone Python program called *mido_test.py*, a *requirements.txt* file to make the installation of the extra libries easier, a Python project written in **PAGE** called *MidiInfo* which includes 4 files (MidiInfo.tcl, MidiInfo.py, MidiInfo_support.py and the shared.py file which are required to run the program), a grahics folder for the PAGE project, a themes folder which is required for the PAGE project, at least 4 freely available midi files and a **Fluidsynth **soundfont file.
+**NOTE: This is currently an EARLY RELEASE REPOSITORY.**
+
+This repository contains Python code for a standalone Python program called *mido_test.py*, a *requirements.txt* file to make the installation of the extra libries easier, a Python project written in **PAGE** called *MidiInfo* which includes 4 files (MidiInfo.tcl, MidiInfo.py, MidiInfo_support.py and the shared.py file which are required to run the program), a grahics folder for the PAGE project, a themes folder which is required for the PAGE project and at least 4 freely available midi files.
 
 ## Assumptions
 
@@ -20,7 +22,7 @@ To install Fluidsynth on your system, in a terminal type
 If you don't want to use the requirements.txt, there are two python libraries that you need to install.
 
     pip3 install mido
-    pip3 install midi2audio
+
 
 To get the midi files to play, I used alsa and alsa_seq.  You can check to see if you already have alsa installed by typeing in a terminal "alsa -version"
 
