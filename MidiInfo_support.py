@@ -31,7 +31,7 @@ import MidiInfo
 
 _debug = True  # False to eliminate debug printing from callback functions.
 location = MidiInfo._location
-version = "0.1.0"
+version = "0.1.2"
 
 
 def main(*args):
@@ -64,6 +64,7 @@ def startup():
     set_titlebar()
     # ports()
     clear_display()
+    shared.lastpath = location
     centre_screen(718, 438)
 
 
@@ -141,38 +142,41 @@ def on_btnOpen(*args):
         sys.stdout.flush()
 
     filename = filedialog.askopenfilename(
-        initialdir=location,
+        initialdir=shared.lastpath,
         title="Select A MIDI File",
         filetypes=(("midi files", "*.mid"), ("ALL Files", "*.*")),
     )
-    if _debug:
-        print(filename)
-    # Get the filename of the midi file
-    shared.midifilename = os.path.basename(filename)
-    print(shared.midifilename)
-    # Add it to the titlebar app title
-    _top1.title(f"{shared.basetitle} - {shared.midifilename}")
-    mid = MidiFile(filename)
-    busyStart()
-    clear_display()
-    parse_midi_file(mid)
-    if _debug:
-        print(f"{shared.tempo=}")
-    _w1.KeySignature.set(shared.key_signature)
-    _w1.TimeSignature.set(shared.time_signature)
-    _w1.Tempo.set(shared.tempo)
-    _w1.MidiFileType.set(shared.miditype)
-    songlength = mid.length
-    slen = f"{int(songlength/60)} minutes, {int(songlength%60)} seconds."
-    _w1.Songlength.set(slen)
-    if _debug:
+    print(filename)
+    if filename != ():
+        # if _debug:
+        #     print(filename)
+        # Get the filename of the midi file
+        shared.midifilename = os.path.basename(filename)
+        shared.lastpath = os.path.dirname(filename)
+        print(shared.midifilename)
+        # Add it to the titlebar app title
+        _top1.title(f"{shared.basetitle} - {shared.midifilename}")
+        mid = MidiFile(filename)
+        busyStart()
+        clear_display()
+        parse_midi_file(mid)
+        if _debug:
+            print(f"{shared.tempo=}")
+        _w1.KeySignature.set(shared.key_signature)
+        _w1.TimeSignature.set(shared.time_signature)
+        _w1.Tempo.set(shared.tempo)
+        _w1.MidiFileType.set(shared.miditype)
+        songlength = mid.length
+        slen = f"{int(songlength/60)} minutes, {int(songlength%60)} seconds."
+        _w1.Songlength.set(slen)
+        if _debug:
 
-        print(f"{shared.time_signature=}")
-        print(f"{shared.key_signature=}")
-        print(f"{shared.tracks}")
-    # delete_list_items()
-    FillListBox()
-    busyEnd()
+            print(f"{shared.time_signature=}")
+            print(f"{shared.key_signature=}")
+            print(f"{shared.tracks}")
+        # delete_list_items()
+        FillListBox()
+        busyEnd()
 
 
 def FillListBox():
@@ -197,6 +201,7 @@ def delete_list_items():
 
 
 def setup_vars():
+    shared.lastpath = ""
     shared.midifilename = ""
     shared.miditype = ""
     shared.trackname = ""
