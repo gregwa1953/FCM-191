@@ -3,28 +3,18 @@ import os
 import subprocess
 import mido
 from mido import MidiFile, Message, tempo2bpm
-from midi2audio import FluidSynth
 
-# from mido.midifiles.meta import MetaSpec
 import shared
 
 
 def work_it():
     ports()
     filename = "cantaloop.mid"
+    # filename = "Fantasy.mid"
+    # filename = "Moondance.mid"
+    # filename = "MARS11=1.mid"
+    # filename = "Bob_Seger_Turn_The_Page.mid"
     mid = MidiFile(filename)
-    # mid = mido.MidiFile("Fantasy.mid")
-    # mid = mido.MidiFile("Bob_Seger_Turn_The_Page.mid")
-    # mid = mido.MidiFile("cantaloop.mid")
-    # mid = mido.MidiFile("MARS11-1.mid")
-    # mid = mido.MidiFile("Moondance.mid")
-
-    # mid = mido.MidiFile("Fantasy.mid")
-    # mid = mido.MidiFile("Bob_Seger_Turn_The_Page.mid")
-    # mid = mido.MidiFile("cantaloop.mid")
-    # mid = mido.MidiFile("MARS11-1.mid")
-    # mid = mido.MidiFile("Moondance.mid")
-
     outport = "TiMidity:TiMidity port 0 128:0"
     setup_vars()
 
